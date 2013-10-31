@@ -53,7 +53,7 @@ function update()
 /** парсер страницы института */
 function parse_uni($a)
 {
-	echo "{'faculty_name': ".json_encode($a['title']).",\n";
+	echo "{'faculty_name': '".$a['title']."',\n";
 	$page = page($a['url']);
 
 	if (preg_match_all('#href="([^"]+).{0,200}title="(\d курс)#s', $page, $m, PREG_SET_ORDER))
@@ -164,7 +164,7 @@ function parse_table($group)
 
 	if (!$listByDays) return false;
 
-	echo "\t{'group_name': ".json_encode($group['title']).", 'days':[\n";
+	echo "\t{'group_name': '".$group['title']."', 'days':[\n";
 
 	foreach ($listByDays as $day => $a)
 	{
