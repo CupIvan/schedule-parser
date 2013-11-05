@@ -56,6 +56,8 @@ function parse_uni($a)
 	echo "{'faculty_name': '".$a['title']."',\n";
 	$page = page($a['url']);
 
+	ob_start();
+
 	if (preg_match_all('#href="([^"]+).{0,200}title="(\d курс)#s', $page, $m, PREG_SET_ORDER))
 	foreach ($m as $a)
 	{
@@ -63,6 +65,10 @@ function parse_uni($a)
 		$a['title'] = $a[2];
 		parse_course($a);
 	}
+
+	if ($st = ob_get_clean())
+		echo "'groups':[\n".$st."],\n";
+
 	echo "},\n";
 }
 
@@ -73,15 +79,12 @@ function parse_course($a)
 
 	if (preg_match_all('#>([^<]+).{0,40}href="(/AU/TimeTable[^"]+)#s', $page, $m, PREG_SET_ORDER))
 	{
-		ob_start();
 		foreach ($m as $a)
 		{
 			$a['url']   = $a[2];
 			$a['title'] = $a[1];
 			parse_table($a);
 		}
-		if ($st = ob_get_clean())
-		echo "'groups':[\n".$st."],\n";
 	}
 }
 
