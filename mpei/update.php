@@ -51,25 +51,27 @@ function update()
 }
 
 /** парсер страницы института */
-function parse_uni($a)
+function parse_uni($uni, $only_groups = false)
 {
-	echo "{'faculty_name': '".$a['title']."',\n";
-	$page = page($a['url']);
+	$page = page($uni['url']);
 
 	ob_start();
 
-	if (preg_match_all('#href="([^"]+).{0,200}title="(\d курс)#s', $page, $m, PREG_SET_ORDER))
+	if (preg_match_all('#href="([^"]+).{0,100}RPlus.gif.{0,100}title="(\d курс|Радио|Электро|Менеджм|Эконом)#s', $page, $m, PREG_SET_ORDER))
 	foreach ($m as $a)
 	{
 		$a['url'] = str_replace('&amp;', '&', preg_replace('#\s#', '', $a[1]));
 		$a['title'] = $a[2];
-		parse_course($a);
+
+		if (preg_match('/^\D/', $a['title'])) parse_uni($a, true);
+		else parse_course($a);
 	}
 
 	if ($st = ob_get_clean())
-		echo "'groups':[\n".$st."],\n";
-
-	echo "},\n";
+	{
+		if ($only_groups) { echo $st; return; }
+		echo "{'faculty_name': '".$uni['title']."',\n'groups':[\n$st\n]},\n";
+	}
 }
 
 /** парсер страницы курса: 1 курс .. 6 курс */
