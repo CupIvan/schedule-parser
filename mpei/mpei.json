@@ -1,5 +1,5 @@
-{"timestamp": 1383655196, "faculties":[
-{"faculty_name": "Гуманитарно-прикладной институт",
+{"timestamp": 1383942673, "faculties":[
+{"faculty_name": "ГПИ (Гуманитарно-прикладной институт)",
 "groups":[
 	{"group_name": "ГП-01-13", "days":[
 		{"weekday": 1, "lessons": [{"subject":"\u043f\u0440\u0430\u043a\u0442\u0438\u043a\u0430 \u0440\u0435\u0447\u0438 \u0441\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0433\u043e \u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u043e\u0433\u043e \u044f\u0437\u044b\u043a\u0430","type":3,"date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","teachers":[{"teacher_name":"\u0414\u043e\u0440\u043e\u0445\u0438\u043d\u0430 \u041c\u0430\u0440\u0438\u044f \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u041c-912","auditory_address":null}],"parity":0},{"subject":"\u0410\u043d\u0430\u043b\u0438\u0437 \u0445\u0443\u0434\u043e\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u0442\u0435\u043a\u0441\u0442\u0430","type":3,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","teachers":[{"teacher_name":"\u0416\u0443\u043a \u041d\u0438\u043d\u0430 \u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u041c-917","auditory_address":null}],"parity":0},{"subject":"\u0418\u043d\u0444. \u043a\u043e\u043c. \u0442\u0435\u0445.","type":3,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","teachers":[{"teacher_name":"\u0411\u0443\u0440\u0446\u0435\u0432 \u0410\u043d\u0434\u0440\u0435\u0439 \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447"}],"auditories":[{"auditory_name":"\u0416-410","auditory_address":null}],"parity":0},{"subject":"\u0424\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043a\u0443\u043b\u044c\u0442\u0443\u0440\u0430","date_start":null,"date_end":null,"dates":null,"time_start":"15:35","time_end":"17:10","type":0,"parity":0}]},
@@ -109,7 +109,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт автоматики и вычислительной техники",
+{"faculty_name": "АВТИ (Институт автоматики и вычислительной техники)",
 "groups":[
 	{"group_name": "А-01-13", "days":[
 		{"weekday": 2, "lessons": [{"subject":"\u041c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0430\u043d\u0430\u043b\u0438\u0437","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","teachers":[{"teacher_name":"\u0418\u0433\u043d\u0430\u0442\u044c\u0435\u0432\u0430 \u041d\u0430\u0442\u0430\u043b\u0438\u044f \u0423\u0445\u0430\u043d\u044c\u0435\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0413-404","auditory_address":null}],"parity":0},{"subject":"\u0410\u043b\u0433\u0435\u0431\u0440\u0430 \u0438 \u0430\u043d\u0430\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0433\u0435\u043e\u043c\u0435\u0442\u0440\u0438\u044f","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","teachers":[{"teacher_name":"\u0411\u0443\u043b\u044b\u0447\u0435\u0432\u0430 \u041e\u043b\u044c\u0433\u0430 \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0413-306","auditory_address":null}],"parity":0},{"subject":"\u0410\u043b\u0433\u0435\u0431\u0440\u0430 \u0438 \u0430\u043d\u0430\u043b\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0433\u0435\u043e\u043c\u0435\u0442\u0440\u0438\u044f","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","auditories":[{"auditory_name":"\u0413-308","auditory_address":null}],"parity":0}]},
@@ -484,7 +484,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт менеджмента и экономики в энергетике и промышленности",
+{"faculty_name": "ИМЭЭП (Институт менеджмента и экономики в энергетике и промышленности)",
 "groups":[
 	{"group_name": "ИМ-01-13", "days":[
 		{"weekday": 2, "lessons": [{"subject":"\u0418\u0441\u0442\u043e\u0440\u0438\u044f","type":3,"date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","teachers":[{"teacher_name":"\u0414\u0435\u043c\u0438\u0434\u0438\u043e\u043d\u043e\u0432\u0430 \u041b\u0438\u043b\u0438\u044f \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0410-214","auditory_address":null}],"parity":2},{"subject":"\u0418\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u044b\u0439 \u044f\u0437\u044b\u043a","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","auditories":[{"auditory_name":"\u0416-522,\u0421-209","auditory_address":null}],"parity":0},{"subject":"\u041c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430","type":3,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","teachers":[{"teacher_name":"\u041c\u044f\u043a\u0438\u0448\u0435\u0432 \u042e\u0440\u0438\u0439 \u0412\u0438\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447"}],"auditories":[{"auditory_name":"\u0410-207","auditory_address":null}],"parity":0},{"subject":"\u041f\u0441\u0438\u0445\u043e\u043b\u043e\u0433\u0438\u044f","type":3,"date_start":null,"date_end":null,"dates":null,"time_start":"15:35","time_end":"17:10","teachers":[{"teacher_name":"\u0410\u0437\u0430\u0440\u043a\u0438\u043d\u0430 \u041c\u0430\u0440\u0438\u044f \u0412\u0430\u0434\u0438\u043c\u043e\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u041a-509","auditory_address":null}],"parity":1}]},
@@ -768,7 +768,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт проблем энергетической эффективности",
+{"faculty_name": "ИПЭЭФ (Институт проблем энергетической эффективности)",
 "groups":[
 	{"group_name": "ФП-01-13", "days":[
 		{"weekday": 1, "lessons": [{"subject":"\u0424\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0432\u043e\u0441\u043f\u0438\u0442\u0430\u043d\u0438\u0435","date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","type":0,"parity":0},{"subject":"\u0424\u0438\u0437\u0438\u043a\u0430","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","teachers":[{"teacher_name":"\u041c\u0430\u043d\u0443\u0445\u0438\u043d \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447"}],"auditories":[{"auditory_name":"\u041d-201","auditory_address":null}],"parity":0},{"subject":"\u041d\u0413.\u0418 \u0438 \u041a\u0413.","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","auditories":[{"auditory_name":"\u0414-310","auditory_address":null}],"parity":0},{"subject":"\u041d\u0413.\u0418 \u0438 \u041a\u0413.","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"15:35","time_end":"17:10","auditories":[{"auditory_name":"\u0414-310","auditory_address":null}],"parity":1},{"subject":"\u0424\u0438\u0437\u0438\u043a\u0430","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"15:35","time_end":"17:10","auditories":[{"auditory_name":"\u0410-307","auditory_address":null}],"parity":2}]},
@@ -1154,7 +1154,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт радиотехники и электроники",
+{"faculty_name": "ИРЭ (Институт радиотехники и электроники)",
 "groups":[
 	{"group_name": "ЭР-11-13", "days":[
 		{"weekday": 1, "lessons": [{"subject":"\u0424\u0438\u0437\u0438\u043a\u0430","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","auditories":[{"auditory_name":"\u0410-204","auditory_address":null}],"parity":0},{"subject":"\u0412\u044b\u0441\u0448\u0430\u044f \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 2","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","teachers":[{"teacher_name":"\u0421\u0430\u043b\u0438\u043c\u043e\u0432\u0430 \u0410\u043b\u044c\u0444\u0438\u044f \u0424\u0430\u0438\u0437\u043e\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0410-320","auditory_address":null}],"parity":0},{"subject":"\u0418\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u044b\u0439 \u044f\u0437\u044b\u043a","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","auditories":[{"auditory_name":"\u041c-812","auditory_address":null}],"parity":0},{"subject":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0435 \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0438","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"15:35","time_end":"17:10","teachers":[{"teacher_name":"\u041b\u044f\u0448\u0435\u043d\u043a\u043e \u041b\u044e\u0431\u043e\u0432\u044c \u0418\u0432\u0430\u043d\u043e\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0412-308","auditory_address":null}],"parity":0}]},
@@ -1627,7 +1627,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт тепловой и атомной энергетики",
+{"faculty_name": "ИТАЭ (Институт тепловой и атомной энергетики)",
 "groups":[
 	{"group_name": "ТФ-01-13", "days":[
 		{"weekday": 1, "lessons": [{"subject":"\u0418\u0441\u0442\u043e\u0440\u0438\u044f","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","auditories":[{"auditory_name":"\u0416-206","auditory_address":null}],"parity":1},{"subject":"\u0425\u0438\u043c\u0438\u044f","type":1,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","auditories":[{"auditory_name":"\u0410-413\u0431","auditory_address":null}],"parity":1},{"subject":"\u0425\u0438\u043c\u0438\u044f","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","auditories":[{"auditory_name":"\u0410-413\u0431","auditory_address":null}],"parity":2},{"subject":"\u0418\u0441\u0442\u043e\u0440\u0438\u044f","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","teachers":[{"teacher_name":"\u0421\u043c\u0438\u0440\u043d\u043e\u0432\u0430 \u041c\u0430\u0440\u0438\u043d\u0430 \u0418\u0432\u0430\u043d\u043e\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0412-308","auditory_address":null}],"parity":0},{"subject":"\u0412\u044b\u0441\u0448\u0430\u044f \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430 (\u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u0447. \u0430\u043d\u0430\u043b\u0438\u0437)","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"15:35","time_end":"17:10","teachers":[{"teacher_name":"\u0415\u043b\u0438\u0441\u0435\u0435\u0432 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0413\u0435\u043e\u0440\u0433\u0438\u0435\u0432\u0438\u0447"}],"auditories":[{"auditory_name":"\u0413-300","auditory_address":null}],"parity":0}]},
@@ -2053,7 +2053,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт электротехники",
+{"faculty_name": "ИЭТ (Институт электротехники)",
 "groups":[
 	{"group_name": "ЭЛ-01-13", "days":[
 		{"weekday": 1, "lessons": [{"subject":"\u0425\u0438\u043c\u0438\u044f","type":1,"date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","auditories":[{"auditory_name":"\u0410-413","auditory_address":null}],"parity":0},{"subject":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0442\u0438\u043a\u0430","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","auditories":[{"auditory_name":"\u0414-419","auditory_address":null}],"parity":1},{"subject":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0442\u0438\u043a\u0430","type":1,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","auditories":[{"auditory_name":"\u0416-111","auditory_address":null}],"parity":2},{"subject":"\u0412\u044b\u0441\u0448\u0430\u044f \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430-2","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","teachers":[{"teacher_name":"\u0421\u0430\u043b\u044c\u043d\u0438\u043a\u043e\u0432\u0430 \u0422\u0430\u0442\u044c\u044f\u043d\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u044c\u0435\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0413-300","auditory_address":null}],"parity":0},{"subject":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0442\u0438\u043a\u0430","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"15:35","time_end":"17:10","teachers":[{"teacher_name":"\u041a\u0440\u044e\u043a\u043e\u0432 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0410\u043d\u0434\u0440\u0438\u0430\u043d\u043e\u0432\u0438\u0447"}],"auditories":[{"auditory_name":"\u0417-401","auditory_address":null}],"parity":0}]},
@@ -2466,7 +2466,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт электроэнергетики",
+{"faculty_name": "ИЭЭ (Институт электроэнергетики)",
 "groups":[
 	{"group_name": "Э-15-13", "days":[
 		{"weekday": 1, "lessons": [{"subject":"\u0424\u0438\u0437\u043a\u0443\u043b\u044c\u0442\u0443\u0440\u0430","date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","type":0,"parity":0},{"subject":"\u0412\u044b\u0441\u0448\u0430\u044f \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430","type":2,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","teachers":[{"teacher_name":"\u0411\u0430\u043b\u0430\u0448\u043e\u0432\u0430 \u0413\u0430\u043b\u0438\u043d\u0430 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430"}],"auditories":[{"auditory_name":"\u0412-308","auditory_address":null}],"parity":0},{"subject":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0442\u0438\u043a\u0430","type":1,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","auditories":[{"auditory_name":"\u0416-113","auditory_address":null}],"parity":1},{"subject":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0442\u0438\u043a\u0430","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","auditories":[{"auditory_name":"\u0413-403","auditory_address":null}],"parity":2}]},
@@ -2769,7 +2769,7 @@
 	]}
 
 ]},
-{"faculty_name": "Институт энергомашиностроения и механики",
+{"faculty_name": "ЭнМИ (Институт энергомашиностроения и механики)",
 "groups":[
 	{"group_name": "С-02-13", "days":[
 		{"weekday": 2, "lessons": [{"subject":"\u0424\u0438\u0437\u043a\u0443\u043b\u044c\u0442\u0443\u0440\u0430","date_start":null,"date_end":null,"dates":null,"time_start":"09:20","time_end":"10:55","type":0,"parity":0},{"subject":"\u0418\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u044b\u0439 \u044f\u0437\u044b\u043a","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"11:10","time_end":"12:45","auditories":[{"auditory_name":"\u041c-904","auditory_address":null}],"parity":0},{"subject":"\u0412\u044b\u0441\u0448\u0430\u044f \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0430-2","type":0,"date_start":null,"date_end":null,"dates":null,"time_start":"13:45","time_end":"15:20","auditories":[{"auditory_name":"\u0411-402","auditory_address":null}],"parity":0}]},

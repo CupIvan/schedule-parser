@@ -70,7 +70,7 @@ function parse_uni($uni, $only_groups = false)
 	if ($st = ob_get_clean())
 	{
 		if ($only_groups) { echo $st; return; }
-		echo "{'faculty_name': '".$uni['title']."',\n'groups':[\n$st\n]},\n";
+		echo "{'faculty_name': '".$uni['abbr'].' ('.$uni['title'].")',\n'groups':[\n$st\n]},\n";
 	}
 }
 
