@@ -186,7 +186,7 @@ function parse_cell($st)
 	$res = array();
 	if (preg_match('#ttStudyName">([^<]+)#s',            $st, $m)) $res['subject'] = $m[1];
 	if (preg_match('#ttStudyKindName">([^<]+)#s',        $st, $m)) $res['type']    = $m[1];
-	if (preg_match('#ttAuditorium">.+?">([^<]+)#s',      $st, $m)) $res['room']    = $m[1];
+	if (preg_match('#ttAuditorium">(.+?)</span>#s',      $st, $m)) $res['room']    = strip_tags($m[1]);
 	if (preg_match('#ttLectureLink".+?title="([^"]+)#s', $st, $m)) $res['teacher'] = $m[1];
 	return $res;
 }
