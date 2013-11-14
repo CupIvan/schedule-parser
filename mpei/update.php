@@ -172,6 +172,7 @@ function parse_cell($st)
 		if (preg_match('#ttStudyKindName">([^<]+)#s',        $st, $m)) $res[$i-1]['type']    = $m[1];
 		if (preg_match('#ttAuditorium">(.+?)</span>#s',      $st, $m)) $res[$i-1]['room']    = strip_tags($m[1]);
 		if (preg_match('#ttLectureLink".+?title="([^"]+)#s', $st, $m)) $res[$i-1]['teacher'] = $m[1];
+		if (preg_match('#ttRemark">(.+?)</span>#s',          $st, $m)) $res[$i-1]['comment'] = strip_tags($m[1]);
 	}
 	return $res;
 }
@@ -180,6 +181,8 @@ function parse_cell($st)
 function update_cell(&$a, $gx, $sx)
 {
 	unset($a['name']);
+
+	if (!empty($a['comment']) && isset($a['subject'])) { $a['subject'] .= ' ('.$a['comment'].')'; unset($a['comment']); }
 
 	if (!empty($a['teacher']))
 	$a['teachers'] = array(array('teacher_name' => $a['teacher']));
