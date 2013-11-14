@@ -136,35 +136,16 @@ function parse_table($group)
 			continue;
 		}
 
-		$res  = parse_cell($a[2]);
-		$res += $pair;
-
-		unset($res['name']);
-
-		if (!empty($res['teacher']))
-		$res['teachers'] = array(array('teacher_name' => $res['teacher']));
-		unset($res['teacher']);
-
-		if (!empty($res['room']))
-		$res['auditories'] = array(array('auditory_name' => $res['room'], 'auditory_address' => NULL));
-		unset($res['room']);
-
-		switch (@$res['type'])
-		{
-			case 'практ.':       $res['type'] = 0; break;
-			case 'лаб.':         $res['type'] = 1; break;
-			case 'Лекция':       $res['type'] = 2; break;
-			case 'Семинар':      $res['type'] = 3; break;
-			case 'Консультация': $res['type'] = 4; break;
-			case 'Экзамен':      $res['type'] = 7; break;
-			default: $res['type'] = 0;
-		}
-
+		$res = parse_cell($a[2]);
 		$day  = floor($gx / 2) + 1;
-		$res['parity'] = ($sx == 2) ? 0 : ($gx%2 + 1); // 1 - чётные недели, 2 - нечётные
 
-		if (empty($listByDays[$day])) $listByDays[$day] = array();
-		array_push($listByDays[$day], $res);
+		for ($i = 0; $i < count($res); $i++)
+		{
+			$res[$i] += $pair;
+			update_cell($res[$i], $gx, $sx);
+			if (empty($listByDays[$day])) $listByDays[$day] = array();
+			array_push($listByDays[$day], $res[$i]);
+		}
 	}
 
 	if (!$listByDays) return false;
@@ -184,9 +165,40 @@ function parse_table($group)
 function parse_cell($st)
 {
 	$res = array();
-	if (preg_match('#ttStudyName">([^<]+)#s',            $st, $m)) $res['subject'] = $m[1];
-	if (preg_match('#ttStudyKindName">([^<]+)#s',        $st, $m)) $res['type']    = $m[1];
-	if (preg_match('#ttAuditorium">(.+?)</span>#s',      $st, $m)) $res['room']    = strip_tags($m[1]);
-	if (preg_match('#ttLectureLink".+?title="([^"]+)#s', $st, $m)) $res['teacher'] = $m[1];
+	$a = explode('ttElement">', $st);
+	for ($i = 1; $i < count($a); $i++)
+	{
+		if (preg_match('#ttStudyName">([^<]+)#s',            $st, $m)) $res[$i-1]['subject'] = $m[1];
+		if (preg_match('#ttStudyKindName">([^<]+)#s',        $st, $m)) $res[$i-1]['type']    = $m[1];
+		if (preg_match('#ttAuditorium">(.+?)</span>#s',      $st, $m)) $res[$i-1]['room']    = strip_tags($m[1]);
+		if (preg_match('#ttLectureLink".+?title="([^"]+)#s', $st, $m)) $res[$i-1]['teacher'] = $m[1];
+	}
 	return $res;
+}
+
+/** модификация полей ячейки с учётом API расписания */
+function update_cell(&$a, $gx, $sx)
+{
+	unset($a['name']);
+
+	if (!empty($a['teacher']))
+	$a['teachers'] = array(array('teacher_name' => $a['teacher']));
+	unset($a['teacher']);
+
+	if (!empty($a['room']))
+	$a['auditories'] = array(array('auditory_name' => $a['room'], 'auditory_address' => NULL));
+	unset($a['room']);
+
+	switch (@$a['type'])
+	{
+		case 'практ.':       $a['type'] = 0; break;
+		case 'лаб.':         $a['type'] = 1; break;
+		case 'Лекция':       $a['type'] = 2; break;
+		case 'Семинар':      $a['type'] = 3; break;
+		case 'Консультация': $a['type'] = 4; break;
+		case 'Экзамен':      $a['type'] = 7; break;
+		default: $a['type'] = 0;
+	}
+
+	$a['parity'] = ($sx == 2) ? 0 : ($gx%2 + 1); // 1 - чётные недели, 2 - нечётные
 }
