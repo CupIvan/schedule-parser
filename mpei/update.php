@@ -170,6 +170,7 @@ function parse_cell($st)
 	{
 		if (preg_match('#ttStudyName">([^<]+)#s',            $st, $m)) $res[$i-1]['subject'] = $m[1];
 		if (preg_match('#ttStudyKindName">([^<]+)#s',        $st, $m)) $res[$i-1]['type']    = $m[1];
+		else $res[$i-1]['type'] = 'Лекция';
 		if (preg_match('#ttAuditorium">(.+?)</span>#s',      $st, $m)) $res[$i-1]['room']    = strip_tags($m[1]);
 		if (preg_match('#ttLectureLink".+?title="([^"]+)#s', $st, $m)) $res[$i-1]['teacher'] = $m[1];
 		if (preg_match('#ttRemark">(.+?)</span>#s',          $st, $m)) $res[$i-1]['comment'] = strip_tags($m[1]);
