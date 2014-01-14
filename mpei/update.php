@@ -1,9 +1,9 @@
 <?php
 /**
- * Парсер сайта МЭИ(ТУ) для программы "Расписания ВУЗов"
+ * Парсер сайта МЭИ(НИУ) для программы "Расписания ВУЗов"
  * @url http://raspisaniye-vuzov.ru
  * @author CupIvan <mail@cupivan.ru>
- * @date 08.10.13
+ * @date 11.01.14
  */
 
 define('HOST', 'http://www.mpei.ru');
@@ -43,7 +43,6 @@ function update()
 			$x['abbr']  = $a[3];
 
 			if (strpos($x['title'], '- архив')) continue;
-
 			parse_uni($x);
 		}
 		echo "]}\n";
@@ -79,18 +78,41 @@ function parse_course($a)
 {
 	$page = page($a['url']);
 
-	if (preg_match_all('#>([^<]+).{0,40}href="(/AU/TimeTable[^"]+)#s', $page, $m, PREG_SET_ORDER))
+	if (preg_match_all('#>(?<title>[^<]+).{0,40}'
+		.'href="(?<url1>/AU/TimeTable[^"]+).{0,200}?(?<type1>[a-z]+).GIF'
+		.'(.{0,300}href="(?<url2>/AU/TimeTable[^"]+).{0,200}?(?<type2>[a-z]+).GIF)?'.
+		'#si', $page, $m, PREG_SET_ORDER))
 	{
 		foreach ($m as $a)
 		{
-			$a['url']   = $a[2];
-			$a['title'] = $a[1];
-			parse_table($a);
+			$a['url']  = $a['url1'];
+			$a['type'] = $a['type1'];
+			parse_table_ex($a);
+			if (isset($a['url2']))
+			{
+				$a['url']  = $a['url2'];
+				$a['type'] = $a['type2'];
+				parse_table_ex($a);
+			}
 		}
 	}
 }
 
-/** парсер страницы с расписанием */
+/** запуск парсера страницы с расписанием */
+function parse_table_ex($a)
+{
+	ob_start();
+	if ($a['type'] == 'studyTableDef') parse_table($a);
+	if ($a['type'] == 'examTableDef')  parse_exam($a);
+	$data = ob_get_clean();
+	if (!$data) return false;
+
+	echo "\t{'group_name': '".$a['title']."', 'days':[\n";
+	echo $data;
+	echo "\t]},\n";
+}
+
+/** парсер страницы с расписанием занятий */
 function parse_table($group)
 {
 	$page = page($group['url']);
@@ -150,15 +172,12 @@ function parse_table($group)
 
 	if (!$listByDays) return false;
 
-	echo "\t{'group_name': '".$group['title']."', 'days':[\n";
-
 	foreach ($listByDays as $day => $a)
 	{
 		echo "\t\t{'weekday': $day, 'lessons': ";
 		echo json_encode($a);
 		echo "},\n";
 	}
-	echo "\t]},\n";
 }
 
 /** парсер ячейки расписания */
@@ -176,6 +195,36 @@ function parse_cell($st)
 		if (preg_match('#ttRemark">(.+?)</span>#s',          $st, $m)) $res[$i-1]['comment'] = strip_tags($m[1]);
 	}
 	return $res;
+}
+
+/** парсер страницы с расписанием экзаменов */
+function parse_exam($group)
+{
+	$page = page($group['url']);
+	$page = preg_replace('#.+<table(.+?)</table>.+#s', '$1', $page);
+	if (preg_match_all(
+		'#'
+		.'.+?ttWeekDate[^<]+<nobr>(?<time>\d.+?)</nobr>'
+		.'.+?ttStudyName">(?<subject>[^<]+)'
+		.'.+?KindName">(?<type>[^<]+)'
+		.'.+?ttLectureLink.+?title="(?<teacher>[^"]+)'
+		.'.+?ttAuditorium.+?">(?<room>[^<]+)'
+		.'#s',
+		$page, $m, PREG_SET_ORDER))
+	{
+		echo "\t\t{'weekday': 1, 'lessons': [";
+		foreach ($m as $i => $v)
+		{
+			$t = strtotime($m[$i]['time']);
+			$a = array();
+			$a['date_start'] = date('d.m.Y', $t);
+			$a['time_start'] = date('H:i', $t);
+			$a += array_intersect_key($m[$i], array_fill_keys(['subject','type','teacher','room'], 1));
+			update_cell($a, 0, 0);
+			echo "\n".json_encode($a).',';
+		}
+		echo "\n]},\n";
+	}
 }
 
 /** модификация полей ячейки с учётом API расписания */
