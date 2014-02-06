@@ -212,18 +212,20 @@ function parse_exam($group)
 		.'#s',
 		$page, $m, PREG_SET_ORDER))
 	{
-		echo "\t\t{'weekday': 1, 'lessons': [";
+		$st = '';
 		foreach ($m as $i => $v)
 		{
 			$t = strtotime($m[$i]['time']);
+			if ($t < time()) continue;
 			$a = array();
 			$a['date_start'] = date('d.m.Y', $t);
 			$a['time_start'] = date('H:i', $t);
 			$a += array_intersect_key($m[$i], array_fill_keys(['subject','type','teacher','room'], 1));
 			update_cell($a, 0, 0);
-			echo "\n".json_encode($a).',';
+			$st .= "\n".json_encode($a).',';
 		}
-		echo "\n]},\n";
+		if ($st)
+		echo "\t\t{'weekday': 1, 'lessons': [$st\n]},\n";
 	}
 }
 
