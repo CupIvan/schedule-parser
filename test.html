@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Проверка валидности JSON расписаний [shedule]</title>
+</head>
+<body>
+
+<script>
+	if (document.location.href.indexOf('file://') != -1)
+		document.location = 'http://opendata.cupivan.su/schedule/test.html';
+</script>
+
+<script>
+// dollar.js 3.6
+window.$$=function(a,b,_){var i,j,k,l,m=document,n,e,o,c;if(typeof(a)!='string'){if(a)m=a;a=b;b=_};m=[m];a=a.split(' ');l=a.length;for(i=0;i<l;i++){n=[];for(j=0;j<m.length;j++){o=(/([#\.])?([\w-*]+)([\.\[#])?([\w-*]+)?/i).exec(a[i]);o[0]='';if('.checkbox.hidden.password.submit.button.'.indexOf('.'+o[2]+'.')>=0)o[0]=o[2],o[2]='input';if(o[1]=='#')e=[m[j].getElementById(o[2])];else if(o[1]=='.')try{e=m[j].getElementsByClassName(o[2])}catch(e){e=_getElementsByClassName(m[j],o[2])}else try{e=m[j].getElementsByTagName(o[2])}catch(e){};c=e.length;if(i==l-1){var p=[];for(k=0;k<c;k++)p.push(e[k]);e=p};var q;for(k=0;k<c;k++)if(e[k]){q='checked|multiple'.indexOf(o[4])!=-1;if((o[3]=='.'&&e[k].className.indexOf(o[4])<0)||(o[3]=='#'&&e[k].id!=o[4])||(o[3]=='['&&((q&&!e[k][o[4]])||(!q&&e[k].name!=o[4])))||(o[0]&&e[k].type!=o[0]))continue;n.push(e[k]);if(i==l-1){if(typeof(b)=='function')b(e[k],k,c);if(typeof(b)=='object')window.$(e[k],b)}}};m=[].concat(n)};return m};window.$=function(d,f){var r,s,a,u=d||document,i;if(typeof(d)=='function')return $('',{onDOMContentLoaded:d});if(typeof(d)=='object'&&d[0])if('SELECT,FORM'.indexOf(d.nodeName)==-1){i=-1;while(d[++i])u=$(d[i],f);return u};if(typeof(d)=='string'){if(('.header.section.footer.div.span.b.i.nav.a.img.iframe.canvas.br.script.style.form.input.label.select.option.table.tr.td.th.').indexOf('.'+d+'.')!=-1){u=document.createElement(d);u.append=function(e){u.appendChild(e);return e};try{u.innerHTML=' '}catch(e){}}else if(d)u=document.getElementById(d);if(!u)return null}else if(d==undefined)u=document.body;if(f!=undefined){if(d=='style'){try{u.innerHTML=f}catch(e){u.setAttribute('type','text/css');u.styleSheet.cssText=f};return u};var v,b,t;if(typeof(f)!='object')f={innerHTML:f};for(i in f)if(i=='style')style(u,f[i]);else if(i.indexOf('on')==0){b=(function(i){return function(e){e=e||window.event;if(!e.target)e.target=e.srcElement;if(!e.which)e.which=e.keyCode;v=e.returnValue=f[i](e);if(!v&&e.preventDefault)e.preventDefault();return v}})(i);try{u.addEventListener(i.replace(/^on/,''),b,false)}catch(e){if(i.indexOf('onDOM')==0){t=window.onload;window.onload=function(){if(t)t();b()}}else u[i]=b}}else u[i]=f[i]};return u};function _getElementsByClassName(g,h){var w=[],i,x;var y=new RegExp('\\b'+h+'\\b');var z=g.getElementsByTagName('*');for(i=0;i<z.length;i++){x=z[i].className;if(y.test(x))w.push(z[i])};return w};$('nav');$('section');$('header');$('footer');
+// ajax.js 2.2
+window.ajax=function(){this.send=this.load=function(a,b,c){if(typeof(b)=='function'){c=b;b=''};if(typeof(b)=='object'&&b.tagName!='FORM'){var i,g='';for(i in b)g+=(g?'&':'')+i+'='+encodeURIComponent(b[i]);b=g};if(a.indexOf('localhost')!=-1||document.domain==this.domain(a))if(typeof(b)=='string')this.loadAjax(a,b,c);else this.formSend(a,b,c);else{if(b==undefined)this.loadJS(a,c);else this.formSend(a,b,c)}},this.domain=function(a){var d=/http:\/\/([^\/]+)/.exec(''+a);return d?d[1]:document.domain},this.loadAjax=function(a,b,c){var l=new XMLHttpRequest(),e=this.evalResponse;l.open(b!=''?'POST':'GET',a);l.onreadystatechange=function(){if(c!=undefined&&l.readyState==4)c(e(l.status==200?l.responseText:false))};if(b!='')l.setRequestHeader('Content-Type','application/x-www-form-urlencoded');l.setRequestHeader('X-Requested-With','xmlhttprequest');l.send(b!=''?b:null)},this.setOnload=function(e,c){e.onload=c;if(!-[1,])e.onreadystatechange=function(){if('loaded|complete'.indexOf(this.readyState)!=-1)c()}},this.loadJS=function(a,c){var s=$('script'),i;s.type='text/javascript';s.src=a;ajax.jsData=[];_=function(x){ajax.jsData.push(x)};if(c)ajax.setOnload(s,function(){c(ajax.jsData)});$().appendChild(s)},this.formSend=function(a,b,c){var m='ajaxFrame',n,f=$(m);if(!f)$().appendChild(f=$('iframe',{id:m,name:m}));f.style.display='none';ajax.setOnload(f,this.mkhandler(c,f));if(typeof(b)=='string')$().appendChild(n=$('form',{method:'POST',style:'display: none',innerHTML:b.replace(/([^=]+)=([^&]+)(&(amp;)?)?/g,'<textarea name="$1">$2</textarea>\n')}));else n=b;n.setAttribute('action',a);n.target=m;n.submit()},this.loadIframe=function(a,c){$().appendChild($('iframe',{style:'display: none',src:a,onload:this.mkhandler(c)}))},this.mkhandler=function(h,f){var e=this.evalResponse;return(function(x){return function(){var g='';g=f.contentDocument.body.innerHTML;g=g.replace(/^<pre.*?>([\s\S]+?)<\/pre>.*/,'$1');x(e(g))}})(h)},this.evalResponse=function(x){return '{"['.indexOf(x[0])!=-1?eval('('+x+')'):x};return this}();
+</script>
+
+<nav>
+	<a href="./voenmeh/schedule.json" target="fr">БГТУ</a>
+	<a href="./mpei/schedule.json"    target="fr">МЭИ</a>
+</nav>
+
+<div id="test"></div>
+
+<script>
+$$('nav a', {
+	onclick: function(e){
+		ajax.load(e.target.href, function(a){
+			draw(a);
+		});
+		return false;
+	}
+});
+$$('nav a')[0].click();
+
+function draw(A)
+{
+	var i, f, st = '';
+
+	st += '<br><b>'+A.institute_name+'</b><br><br>';
+
+	for (i in A.faculties) dr_fac(A.faculties[i]);
+	function dr_fac(f)
+	{
+		var i;
+		st += f.faculty_name+' - '+(f.groups?f.groups.length:'???')+'<br>';
+		for (i in f.groups) dr_gr(f.groups[i]);
+			st += '<br><br>';
+	}
+	function dr_gr(g)
+	{
+		st += g.group_name+', ';
+	}
+	$('test', st);
+}
+</script>
+</body>
