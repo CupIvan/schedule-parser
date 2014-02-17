@@ -3,13 +3,16 @@
 
 require_once 'parser.class.php';
 
-//$s = 'voenmeh'; chdir($s);
-//require_once 'parser.class.php';
+$a = ['mpei', 'voenmeh', 'mephist'];
+foreach ($a as $institute)
+{
+	chdir($institute);
+	require_once 'parser.class.php';
 
-$s = 'mephist'; chdir($s);
-require_once 'parser.class.php';
+	$rasp = new $institute();
+	$rasp->update();
 
-$rasp = new $s();
-$rasp->update();
+	passthru('gzip -k --force schedule.json');
 
-passthru('gzip -k schedule.json');
+	break; // for test only first insitute
+}
