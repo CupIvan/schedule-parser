@@ -3,7 +3,7 @@
 
 require_once 'parser.class.php';
 
-$a = ['phil_msu', 'law_msu', 'mpei', 'voenmeh', 'mephist'];
+$a = ['socio_msu', 'phil_msu', 'law_msu', 'mpei', 'voenmeh', 'mephist'];
 foreach ($a as $institute)
 {
 	chdir($institute);
