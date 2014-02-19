@@ -8,7 +8,7 @@ class parser
 	const T_PRACT = 0; // практическое занятие (по-умолчанию)
 	const T_LAB   = 1; // лабораторная работа
 	const T_LEC   = 2; // лекция
-	const T_SEM   = 4; // семинар
+	const T_SEM   = 3; // семинар
 	const T_CONS  = 4; // консультация
 	const T_OUT   = 5; // внеучебное занятие
 	const T_ZACH  = 6; // зачет
@@ -44,7 +44,12 @@ class parser
 	{
 		$f = @$a['faculty'];
 		$g = @$a['group'];
-		$w = @$a['weekday']; if (!$w) $w = 1;
+		$w = @$a['weekday'];
+
+		if (!$w && empty($a['date'])) $w = 1;
+		else
+			$w = date('w', strtotime($a['date']));
+
 		if (empty($this->faculties[$f]))         $this->faculties[$f]         = [];
 		if (empty($this->faculties[$f][$g]))     $this->faculties[$f][$g]     = [];
 		if (empty($this->faculties[$f][$g][$w])) $this->faculties[$f][$g][$w] = [];
@@ -158,5 +163,10 @@ class parser
 	private function encode($st)
 	{
 		return urlencode(str_replace(["\\", "\n", '"'], ["\\\\", "\\n", '\\"'], $st));
+	}
+	/** вывод сообщения об ошибке */
+	protected function error($st)
+	{
+		echo "ERROR: $st\n";
 	}
 }
