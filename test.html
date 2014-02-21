@@ -42,9 +42,10 @@ $$('nav a')[0].click();
 
 function draw(A)
 {
-	var i, f, st = '';
+	var i, f, st = '', teachers={}, rooms={}, subjects={}, date1='9999', date2='0000';
 
-	st += '<br><b>'+A.institute_name+'</b><br><br>';
+	st += '<h1>'+A.institute_name+'</h1>';
+	st += '<div id="dates" style="font-style: italic; margin: 10px 0"></div>';
 
 	for (i in A.faculties) dr_fac(A.faculties[i]);
 	function dr_fac(f)
@@ -56,9 +57,34 @@ function draw(A)
 	}
 	function dr_gr(g)
 	{
+		var i, j, k, t, dd;
 		st += g.group_name+', ';
+		for (i=0; i < g.days.length; i++)
+		for (j=0; j < g.days[i].lessons.length; j++)
+		{
+			t = g.days[i].lessons[j];
+			subjects[t.subject] = 1;
+			for (k=0; k < t.auditories.length; k++) rooms[t.auditories[k].auditory_name] = 1;
+			for (k=0; k < t.teachers.length; k++)   teachers[t.teachers[k].teacher_name] = 1;
+			if (t.date_start)
+			{
+				dd = t.date_start.replace(/(\d+).(\d+).(\d+)/, '$3-$2-$1');
+				if (dd < date1) date1 = dd;
+				dd = t.date_end.replace(/(\d+).(\d+).(\d+)/, '$3-$2-$1');
+				if (dd > date2) date2 = dd;
+			}
+		}
 	}
+
+	st += '<h5>Преподаватели</h5>';
+	for (i in teachers) st += ', '+i;
+	st += '<h5>Аудитории</h5>';
+	for (i in rooms) st += ', '+i;
+	st += '<h5>Предметы</h5>';
+	for (i in subjects) st += ', '+i;
+
 	$('test', st);
+	if (date1) $('dates', (date1+' - '+date2).replace(/(\d+)-(\d+)-(\d+)/g, '$3.$2.$1'));
 }
 </script>
 </body>
