@@ -97,6 +97,13 @@ class law_msu extends parser
 					default:
 						echo "Unknown type: ".$m['type']."\n";
 				}
+
+				if (preg_match('/Вирт. гр.:.+\)\s*(.+?)\s*$/', $m['teachers'], $m_))
+				{
+					$m['subject'] .= ' ('.$m_[1].')';
+					$m['teachers'] = '';
+				}
+
 				$m = array_merge($m, [
 					'time_start' => $time[$timeCk][0],
 					'time_end'   => $time[$timeCk][1],
