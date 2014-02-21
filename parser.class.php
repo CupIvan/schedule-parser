@@ -46,9 +46,9 @@ class parser
 		$g = @$a['group'];
 		$w = @$a['weekday'];
 
-		if (!$w && empty($a['date'])) $w = 1;
-		else
-			$w = date('w', strtotime($a['date']));
+		if (!empty($a['from'])) $w = date('w', $a['from']);
+		if (!empty($a['date'])) $w = date('w', strtotime($a['date']));
+		if (!$w) $w = 1;
 
 		if (empty($this->faculties[$f]))         $this->faculties[$f]         = [];
 		if (empty($this->faculties[$f][$g]))     $this->faculties[$f][$g]     = [];
