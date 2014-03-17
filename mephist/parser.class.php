@@ -11,14 +11,13 @@ class mephist extends parser
 
 	public function update()
 	{
-		$page = $this->download('/');
-
-		if (preg_match('#groups-select1.+?</select>#is', $page, $m))
-		if (preg_match_all('#value=.(\d+)#', $m[0], $m))
-		foreach ($m[1] as $i => $groupId)
+		$page = $this->download('/getEvents.php?get=settings&rType=json');
+		$json = json_decode($page, true);
+		foreach ($json['groups'] as $i => $a)
 		{
+			$groupId = $a['id'];
 			$start = date('U', mktime(0, 0, 0, date('m'), 1, 2014));
-			$end   = $start + 3600*24*30*1; // на 1 месяц
+			$end   = $start + 3600*24*7*2; // на 2 недели
 			$page  = $this->download("/getEvents.php?groupId=$groupId&start=$start&end=$end");
 			$this->parseGroup($page);
 		}
@@ -40,6 +39,7 @@ class mephist extends parser
 			'К' => 'Кибернетики и информационной безопасности',
 			'Б' => 'Кибернетики и информационной безопасности',
 			'Р' => 'Кибернетики и информационной безопасности',
+			'М' => 'Магистратура',
 			'В' => 'Очно-заочного обучения',
 			'Е' => 'Высший физический колледж',
 			'Т' => 'Экспериментальной и теоретической физики',
@@ -56,8 +56,8 @@ class mephist extends parser
 			$teachers  = explode(':', $teachers);
 			$rooms     = explode(':', $a['auditories']);
 			$a['type'] = $types[$a['type']];
-			$a['from'] = $a['start'];
-			$a['to']   = $a['end'];
+			$a['from'] = $a['start'] - 3600*4;
+			$a['to']   = $a['end']   - 3600*4;
 			foreach (explode(':', $a['groups']) as $group)
 			{
 				$a['group']      = $group;
