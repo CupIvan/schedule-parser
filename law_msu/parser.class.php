@@ -65,6 +65,7 @@ class law_msu extends parser
 	/** парсим страницу с расписанием */
 	private function parseGroup($page)
 	{
+		$page = substr($page, strpos($page, '<body'));
 
 		// находим время пар
 		$time = []; $timeCk = 0;
@@ -77,16 +78,18 @@ class law_msu extends parser
 		// парсим дни
 		if (preg_match_all('#class="block">'
 			.'.+?blockhead[^>](.+?)(?<date>[\d.]+)'
-			.'.+?blockbody.+?>(?<data>.+?)</div>'
-			.'.+?</div>#s', $page, $m, PREG_SET_ORDER))
+			.'.+?blockbody.+?>(?<data>.+?)<!-- block'
+			.'#s', $page, $m, PREG_SET_ORDER))
 		foreach ($m as $a)
 		{
 			$date = $a['date'];
+			$data = explode('blockbodygr', $a['data']);
+			for ($i = 0; $i < count($data); $i++)
 			if (preg_match('#<p>.+?>(?<subject>.+?)<'
 				.'.*?\[(?<type>.+?)</font>'
 				.'.*?ауд\.(?<room>.+?)</font>'
 				.'.*?<br/>(?<teachers>.+?)<br/>'
-				.'#s', $a['data'], $m))
+				.'#s', $data[$i], $m))
 			{
 				switch (strip_tags($m['type']))
 				{
@@ -94,6 +97,8 @@ class law_msu extends parser
 					case 'Пз':  $m['type'] = self::T_PRACT; break;
 					case 'Лб':  $m['type'] = self::T_LAB;   break;
 					case 'Сем': $m['type'] = self::T_SEM;   break;
+					case 'Зач': $m['type'] = self::T_ZACH;  break;
+					case 'Экз': $m['type'] = self::T_EXAM;  break;
 					default:
 						echo "Unknown type: ".$m['type']."\n";
 				}
@@ -114,9 +119,10 @@ class law_msu extends parser
 					'group'      => $this->group,
 				]);
 				$this->addSubject($m);
+				if (++$timeCk >= count($time)) $timeCk = 0;
 			}
-
-			if (++$timeCk >= count($time)) $timeCk = 0;
+			else
+				if (++$timeCk >= count($time)) $timeCk = 0;
 		}
 	}
 }
